@@ -1,0 +1,5 @@
+---
+# defaults file for typesafe-activator
+  activator_version: 1.3.10
+  activator_offline_dist: false
+  activator_name: "activator-{{ activator_version }}-minimal"

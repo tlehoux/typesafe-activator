@@ -1,0 +1,22 @@
+---
+# tasks file for tlehoux.typesafe-activator
+ - name: install unzip
+   apt: name=unzip state=present
+   become: true
+
+ - name: set typesafe-activator name
+   set_fact:
+     activator_name: "activator-{{ activator_version }}"
+   when:
+     activator_offline_dist|bool
+
+ - name: download exiftool archive
+   get_url:
+    url: http://downloads.typesafe.com/typesafe-activator/{{ activator_version }}/typesafe-{{ activator_name }}.zip
+    dest: /tmp
+
+ - name: extract zip
+   unarchive: src=/tmp/typesafe-{{ activator_name }}.zip dest=~ copy=no
+
+ - name: add activator in PATH
+   lineinfile: dest=~/.profile line="export PATH=~/{{ activator_name }}/bin:$PATH"
