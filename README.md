@@ -1,5 +1,6 @@
 typesafe-activator
 ========
+[![Ansible Role](https://img.shields.io/ansible/role/11845.svg?maxAge=2592000)](https://galaxy.ansible.com/tlehoux/typesafe-activator/)
 
 This is an Ansible role to install typesafe-activator / Play Framework! > 2.3.x.
 
